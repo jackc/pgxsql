@@ -3,7 +3,7 @@ package = "main"
 
 name = "GetPerson"
 
-result_type = "row"
+resultType = "row"
 
 [[parameter]]
 sql_name = "id"

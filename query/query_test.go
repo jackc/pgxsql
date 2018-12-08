@@ -40,6 +40,7 @@ func TestNewSimplest(t *testing.T) {
 	src := `/* pgxsql
 package = "main"
 name = "GetSomething"
+resultType = "commandTag"
 pgxsql */
 
 select 1;
@@ -50,6 +51,7 @@ select 1;
 
 	assert.Equal(t, `main`, qs.Package)
 	assert.Equal(t, `GetSomething`, qs.Name)
+	assert.Equal(t, `commandTag`, qs.ResultType)
 	assert.Equal(t, `select 1;`, qs.SQL)
 	assert.Empty(t, qs.Parameters)
 }

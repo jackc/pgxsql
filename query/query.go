@@ -21,6 +21,7 @@ type Parameter struct {
 type Query struct {
 	Package    string
 	Name       string
+	ResultType string
 	SQL        string
 	Parameters []*Parameter
 }
