@@ -1,1 +1,5 @@
+PATH_add build
+export PGDATABASE=pgxsql_dev
+
+export PGXSQL_DATABASE_URI=postgres:///pgxsql_dev?host=/var/run/postgresql
 export TEST_DATABASE_URI=postgresql:///pgxsql_test?host=/var/run/postgresql

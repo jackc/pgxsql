@@ -28,7 +28,14 @@ func TestGeneratorSimplest(t *testing.T) {
 
 	assert.Equal(t, `package foo
 
-func DoIt(ctx context.Context, conn *pgx.Conn, id int64) (pgx.CommandTag, error) {
+import (
+  "context"
 
+  "github.com/jackc/pgx"
+  "github.com/jackc/pgxsql/base"
+)
+
+func DoIt(ctx context.Context, conn base.Execer, id int64) (pgx.CommandTag, error) {
+  return conn.ExecEx(ctx, `+"`"+`delete from widgets where id=$1`+"`"+`, nil, id)
 }`, buf.String())
 }
